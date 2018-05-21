@@ -1,0 +1,35 @@
+{% comment %}
+Title: Highlight
+Markup: {% this title:"" active:"" float:"" %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Content</td></tr></tbody></table>{% endthis %}
+Example: {% this title:"Lorem ipsum dolor sit amet, consectetur." %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor.</td></tr></tbody></table>{% endthis %}
+Example_1: {% this title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit." active:"true" %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis inventore nisi pariatur assumenda excepturi et, officia alias odit in expedita quos repellendus natus repudiandae sunt, dolor, earum quas soluta cumque distinctio iusto ipsam. Illo, voluptas impedit dolorem alias quo eaque quos fugit reiciendis ipsum natus consectetur necessitatibus molestias ratione at, dolores omnis quae architecto, deleniti ipsam eos earum vero illum fuga. Cum pariatur velit quibusdam necessitatibus quisquam quia quis delectus!</td></tr><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam a illo, esse quo. Harum illo, maiores odio quas quidem dolor saepe eos perferendis labore nam blanditiis quo atque assumenda? Blanditiis.</td></tr></tbody></table>{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>title <i>required.</i></li><li>active <i>true or exclude property</i></li><li>float <i>left, right or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and title %}
+
+    {% capture classes %}
+        {%- if active %} is-active{% endif -%}
+        {%- if float %} fl-{{ float }}{% endif -%}
+    {% endcapture %}
+
+    <div class="item highlight js-target{{ classes }}">  
+
+        <h4 class="title js-toggle">
+
+            {{ title }}
+            
+            {% svg path:"/assets/img/icon-expand.svg" %}
+
+        </h4>
+
+        <div class="content">
+
+            {{ content }}
+
+        </div>
+
+    </div>
+
+{% endif %}

@@ -1,0 +1,36 @@
+<div class="nav-sticky">
+
+    <div class="nav-sticky-fixed">
+
+        <div class="wrapper">
+
+            <div class="progress">
+                <progress class="progress-bar" value="0"></progress>
+            </div>
+
+            {% if page.subnav %}
+
+                <nav class="nav-sub js-rollout-subnav" role="navigation">
+
+                    <div class="title-nav js-toggle" data-bodyclass="is-active-subnav">
+                        <button class="btn-bars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </button>
+                        <span class="js-label">Quickly View Page Content</span>
+                    </div>
+                    <ol>
+                        {% for navigation in page.subnav %}
+                            <li><a href="#{{ navigation[0] }}">{{ navigation[1] }}</a></li>
+                        {% endfor %}
+                    </ol>
+                </nav>
+                
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>

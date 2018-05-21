@@ -1,0 +1,26 @@
+{% comment %}
+Title: Sub Navigation Item
+Markup: {% this title:"" hashtag:"" %}<h2>Title Goes Here</h2>{% endthis %}
+Example: {% this title:"" hashtag:"" %}<h2>H2 tags look like this.</h2>{% endthis %}
+Instructions: Title attribute is used for subnavigation title link label.
+Properties: <ul><li>content <i>required.</i></li><li>title</li><li>hashtag</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+    
+    {% unless hashtag %}
+        {% if title %}
+            {% assign hashtag = title | slugify %}
+        {% else %}
+            {% assign hashtag = content | strip_html | slugify %}
+        {% endif %}
+    {% endunless %}
+
+    <div class="subnav-item" data-waypoint="{{ hashtag }}">
+
+        {{ content }}
+        
+    </div>
+
+{% endif %}

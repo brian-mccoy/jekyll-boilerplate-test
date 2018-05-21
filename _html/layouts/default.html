@@ -1,0 +1,26 @@
+{% include header.html %}
+
+<main role="main" class="site-content">
+  
+  {% if page.slug != "index" %}
+
+    {% include navigation-sub.html %}
+    {% include breadcrumbs.html %}
+    
+  {% endif %}
+
+  <article class="entry wrapper">
+    
+    {% if page.slug != "index" %}
+
+        <h1 class="entry-title" data-waypoint="{{ page.title | slugify }}">{{ page.title }}</h1>
+        
+    {% endif %}
+
+    <div class="entry-content">{{ content }}</div>
+
+  </article>
+
+</main>
+
+{% include footer.html %}

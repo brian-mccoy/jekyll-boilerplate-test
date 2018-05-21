@@ -1,0 +1,20 @@
+{% comment %}
+Title: Icon + Copy
+Markup: {% this icon:"" %}Content{% endthis %}
+Example: {% this icon:"icon-coin-stack" %}<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero reprehenderit itaque, tempora fugit quas provident.</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint explicabo repudiandae, iure, accusamus quas adipisci natus, veniam delectus vitae illum a, fugit placeat blanditiis doloribus. Ipsum molestiae dolorum impedit minus vitae iste. Asperiores alias illum quo! Eaque tempora sapiente fugiat dolorem facere cum quisquam, itaque fuga. Ducimus, ipsa ad repudiandae.{% endthis %}{% this icon:"icon-clipboard" %}<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero reprehenderit itaque, tempora fugit quas provident.</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint explicabo repudiandae, iure, accusamus quas adipisci natus, veniam delectus vitae illum a, fugit placeat blanditiis doloribus. Ipsum molestiae dolorum impedit minus vitae iste. Asperiores alias illum quo! Eaque tempora sapiente fugiat dolorem facere cum quisquam, itaque fuga. Ducimus, ipsa ad repudiandae.{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>icon <i>required.</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and icon %}
+
+    <div class="icon-content">
+        
+        {% assign file = icon %}
+        {% icon file reserve %}
+        
+        {{ content }}
+
+    </div>
+
+{% endif %}

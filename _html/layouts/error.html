@@ -1,0 +1,19 @@
+{% include header.html %}
+
+<main role="main" class="site-content">
+
+  {% include navigation-sub.html %}
+  {% include breadcrumbs.html %}
+
+  <article class="entry wrapper">
+
+    <h1 class="entry-title">{{ page.title }}</h1>
+    <div class="entry-content">
+      {{ content }}
+    </div>
+
+  </article>
+
+</main>
+
+{% include footer.html %}

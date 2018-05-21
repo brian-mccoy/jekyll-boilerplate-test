@@ -1,0 +1,31 @@
+{% comment %}
+Title: Collapsible
+Markup: {% this title:"" icon:"" %}Content{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>title <i>required.</i></li><li>icon</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and title %}
+
+    <dt class="collapsible-title{{ active | if: ' is-active' }}">
+
+        {% if icon %}
+
+            {% assign file = icon %}
+            {% icon file reserve %}
+
+        {% endif %}
+
+        {{ title }}
+        
+        {% svg path:"/assets/img/icon-expand.svg" %}
+
+    </dt>
+
+    <dd class="collapsible-content">
+
+        {{ content }}
+        
+    </dd>
+
+{% endif %}

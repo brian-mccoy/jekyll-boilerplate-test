@@ -1,0 +1,36 @@
+{% comment %}
+Title: Pull Quote
+Markup: {% this source:"" url:"" float:"" %}Content{% endthis %}
+Example: {% this float:"" source:"Test" %}With a predicated <a href="#">growth rate of 17%</a> and <a href="#">median salary of $94,500</a>, following this career path can lead to steady, lucrative employment.{% endthis %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis eveniet accusantium pariatur aspernatur autem laborum illo libero magni. Mollitia officia vel, voluptas! Eius quidem harum culpa unde rerum fugiat quam, magni eveniet aliquam modi aut aliquid nisi odio itaque nobis!<div class="clearfix"></div><br />
+Example_1: <h4>Pull Quote - Centered</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis eveniet accusantium pariatur aspernatur autem laborum illo libero magni. Mollitia officia vel, voluptas! Eius quidem harum culpa unde rerum fugiat quam, magni eveniet aliquam modi aut aliquid nisi odio itaque nobis!{% this float:"center" source:"Test" %}With a predicated <a href="#">growth rate of 17%</a> and <a href="#">median salary of $94,500</a>, following this career path can lead to steady, lucrative employment.{% endthis %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis eveniet accusantium pariatur aspernatur autem laborum illo libero magni. Mollitia officia vel, voluptas! Eius quidem harum culpa unde rerum fugiat quam, magni eveniet aliquam modi aut aliquid nisi odio itaque nobis!<div class="clearfix"></div><br />
+Example_2: <h4>Pull Quote - Right Aligned</h4>{% this float:"right" source:"Test" %}With a predicated <a href="#">growth rate of 17%</a> and <a href="#">median salary of $94,500</a>, following this career path can lead to steady, lucrative employment.{% endthis %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, odit dolore ipsum asperiores eligendi nam obcaecati iusto, commodi ut cupiditate corrupti! Atque eum quas ex laboriosam dolore voluptates. Natus necessitatibus quasi totam, aliquid excepturi minima, odio similique debitis. Iusto dolore error, in nostrum delectus eius quasi quibusdam. Consequuntur, quidem tempore inventore nulla aliquid praesentium assumenda recusandae obcaecati ea aut sed dicta, deleniti neque magni, dolorum aspernatur esse asperiores, nam. Dolores dicta nisi in suscipit doloribus excepturi corporis cupiditate voluptates asperiores sequi impedit, error quaerat repellat sunt ex obcaecati delectus, reprehenderit, voluptas accusamus animi consequatur distinctio eaque assumenda aliquam. Doloribus, temporibus.<div class="clearfix"></div><br />
+Example_3: <h4>Pull Quote - Left Aligned</h4>{% this float:"left" source:"Test" %}With a predicated <a href="#">growth rate of 17%</a> and <a href="#">median salary of $94,500</a>, following this career path can lead to steady, lucrative employment.{% endthis %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, odit dolore ipsum asperiores eligendi nam obcaecati iusto, commodi ut cupiditate corrupti! Atque eum quas ex laboriosam dolore voluptates. Natus necessitatibus quasi totam, aliquid excepturi minima, odio similique debitis. Iusto dolore error, in nostrum delectus eius quasi quibusdam. Consequuntur, quidem tempore inventore nulla aliquid praesentium assumenda recusandae obcaecati ea aut sed dicta, deleniti neque magni, dolorum aspernatur esse asperiores, nam. Dolores dicta nisi in suscipit doloribus excepturi corporis cupiditate voluptates asperiores sequi impedit, error quaerat repellat sunt ex obcaecati delectus, reprehenderit, voluptas accusamus animi consequatur distinctio eaque assumenda aliquam. Doloribus, temporibus.<div class="clearfix"></div>
+Properties: <ul><li>content <i>required.</i></li><li>source</li><li>url</li><li>float <i>left, center, right or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    {% if float %}
+        {% capture class %} fl-{{ float }}{% endcapture %}
+    {% endif %}
+
+    <blockquote class="pullquote{{ class }}">
+
+        <p>{{ content }}</p>
+
+        {% if source %}
+            <footer>
+                <cite>
+                    {% if url %}
+                        <a href="{{ url }}" target="_blank">{{ source }}</a>
+                    {% else %}
+                        {{ source }}
+                    {% endif %}
+                </cite>
+            </footer>
+        {% endif %}
+
+    </blockquote>
+
+{% endif %}

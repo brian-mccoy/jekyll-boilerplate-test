@@ -1,0 +1,21 @@
+{% comment %}
+Title: Intro
+Markup: {% this image:"" %}Content{% endthis %}
+Example: {% this image:"https://via.placeholder.com/100x100/000/fff" %}<h3>Kristen Johnson</h3><p>For some personal insight into the opportunities an MBA in healthcare management can provide, we spoke with ____ _____, a _____ _____ at _____ _____ who received her MBA degree in Healthcare Management online from Full Sail University.</p>{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>image</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    <div class="intro{{ image | if: ' has-image' }}">
+
+        {% if image %}
+            <img class="image" src="{{ image }}" />
+        {% endif %}
+
+        {{ content }}
+
+    </div>
+
+{% endif %}

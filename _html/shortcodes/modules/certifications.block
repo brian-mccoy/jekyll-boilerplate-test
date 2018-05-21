@@ -1,0 +1,17 @@
+{% comment %}
+Title: Certifications
+Markup: {% this %}{% certification title:"" icon:"" %}Content{% endcertification %}{% certification title:"" icon:"" %}Content{% endcertification %}{% endthis %}
+Example: {% this %}{% certification title:"Gamer" icon:"icon-cap" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vel, velit aperiam, ducimus similique voluptas reprehenderit, nobis voluptatum illum tempora saepe assumenda doloremque! Quasi voluptatum quis explicabo quidem itaque dolorem voluptate aut laudantium. Maxime officia ad est iusto nesciunt nobis! Expedita, fugiat exercitationem aliquid dolorum quibusdam assumenda facere magnam eum molestiae, praesentium veritatis nihil officia est officiis labore consectetur repellat?{% endcertification %}{% certification title:"Teacher" icon:"icon-cap" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quidem earum, nobis dolores error rem voluptates ad architecto accusamus adipisci in alias, incidunt. Eaque culpa molestias omnis officia adipisci, similique.{% endcertification %}{% certification title:"Cop" icon:"icon-cap" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vel, velit aperiam, ducimus similique voluptas reprehenderit, nobis voluptatum illum tempora saepe assumenda doloremque! Quasi voluptatum quis explicabo quidem itaque dolorem voluptate aut laudantium. Maxime officia ad est iusto nesciunt nobis! Expedita, fugiat exercitationem aliquid dolorum quibusdam assumenda facere magnam eum molestiae, praesentium veritatis nihil officia est officiis labore consectetur repellat?{% endcertification %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></li></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    <div class="certifications">
+
+        {{ content }}
+
+    </div>
+
+{% endif %}

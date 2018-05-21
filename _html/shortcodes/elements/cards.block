@@ -1,0 +1,22 @@
+{% comment %}
+Title: Card Grouping
+Markup: {% this %}{% card title:"" image:"" url:"" button_label:"" float:"" %}Content{% endcard %}{% card title:"" image:"" url:"" button_label:"" float:"" %}Content{% endcard %}{% endthis %}
+Example: {% this %}{% card title:"<em>Master's In</em> Business Analytics" image:"https://via.placeholder.com/300x200" url:"#" button_label:"Read More" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% card title:"<em>Master's In</em> Business Analytics" image:"https://via.placeholder.com/300x200" url:"#" button_label:"Read More" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% endthis %}
+Example_1: {% this count:"3" %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% endthis %}
+Example_2: {% this %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% card type:"expert" title:"Stephanie Jones <em>Software Designer</em>" image:"https://via.placeholder.com/300x200" url:"#" button_label:"View Interview" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quis veritatis sunt commodi reiciendis eligendi neque nostrum. Aperiam, dignissimos, ex!{% endcard %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></li></ul>
+Instructions: Accepts up to four cards.
+{% endcomment %}
+
+
+{% if content %}
+    
+    {% assign count = content | find:"card-content" %}
+
+    <div class="cards count-{{ count }}">
+
+        {{ content }}
+
+    </div>
+
+{% endif %}

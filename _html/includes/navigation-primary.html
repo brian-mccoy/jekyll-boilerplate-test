@@ -1,0 +1,14 @@
+<ul class="menu">
+  {% for item in site.menus.navigation %}
+    <li{% if item.children %} class="has-children"{% endif %}>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+      {% if item.children %}
+        <ul class="sub-menu">
+          {% for child in item.children %}
+            <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

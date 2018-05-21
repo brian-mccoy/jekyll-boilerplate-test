@@ -1,0 +1,6 @@
+User-agent: *
+
+Disallow: /admin
+Disallow: /styleguide*
+
+Sitemap: https://www.websitetitle.com/sitemap.xml

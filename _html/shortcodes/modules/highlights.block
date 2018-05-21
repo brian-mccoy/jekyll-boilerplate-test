@@ -1,0 +1,38 @@
+{% comment %}
+Title: Highlights
+Markup: {% this title:"" expand_all:"" is_numbered:"" %}{% highlight title:"" active:"true|false" %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Content</td></tr><tr><th>Title</th><td>Content</td></tr></tbody></table>{% endhighlight %}{% highlight title:"" active:"true|false" %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Content</td></tr></tbody></table>{% endhighlight %}{% endthis %}
+Example: {% this title:"Highlights" is_numbered:"true" %}{% highlight title:"Lorem ipsum dolor." %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque molestias officiis in eos, veritatis quibusdam incidunt vero nesciunt commodi. Error.</td></tr><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, velit, enim? Nihil ab non magni assumenda tempora esse quaerat ex.</td></tr></tbody></table>{% endhighlight %}{% highlight title:"Lorem ipsum dolor." %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius voluptatum consequatur suscipit est rerum maiores aut quis tenetur incidunt, expedita.</td></tr></tbody></table>{% endhighlight %}{% highlight title:"Lorem ipsum dolor." %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate saepe dignissimos molestiae vero! Consequatur veritatis, accusantium debitis obcaecati odio dolore.</td></tr></tbody></table>{% endhighlight %}{% endthis %}
+Example_1: {% this title:"Highlights" expand_all:"true" %}{% highlight title:"Lorem ipsum dolor." %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus corrupti asperiores esse expedita ipsa obcaecati, nemo modi saepe amet quod.</td></tr><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero cupiditate aspernatur ullam, aperiam maxime delectus quos sapiente ea numquam consectetur.</td></tr></tbody></table>{% endhighlight %}{% highlight title:"Lorem ipsum dolor." active:"true|false" %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis qui deleniti voluptatum, debitis veritatis. Deleniti veniam, officia sunt tenetur unde.</td></tr></tbody></table>{% endhighlight %}{% highlight title:"Lorem ipsum dolor." active:"true|false" %}<table class="highlight-table"><tbody><tr><th>Title</th><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis eveniet quo ipsum sed fuga earum non error, libero numquam ducimus!</td></tr></tbody></table>{% endhighlight %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>title</li><li>expand_all <i>true or exclude property</i></li><li>is_numbered <i>true or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    {% capture classes %}
+        {%- if expand_all %} is-expanded-all{% endif -%}
+        {%- if is_numbered %} is-numbered{% endif -%}
+    {% endcapture %}
+
+    <div class="list highlights js-children-toggle{{ classes }}">
+
+        {% if title %}
+
+            <h3 class="header">
+
+                {{ title }}
+
+                <div class="btn-controls">
+                    <button type="button" class="js-collapse-all">Collapse All</button>
+                    <button type="button" class="js-expand-all">Expand All</button>
+                </div>
+
+            </h3>
+
+        {% endif %}
+
+        {{ content }}
+
+    </div>
+
+{% endif %}

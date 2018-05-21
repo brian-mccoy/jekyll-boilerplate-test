@@ -1,0 +1,24 @@
+{% comment %}
+Title: Icon + Copy Link
+Markup: {% this icon:"" url:"" title:"" %}Content{% endthis %}
+Example: {% this icon:"icon-budget" reserve:"1" title:"Business Intelligence <em>Analyst</em>" url="#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime provident, vero natus aspernatur blanditiis voluptate quos totam. Quaerat unde modi fugiat laborum architecto sapiente autem minus odio ea mollitia, maiores fuga suscipit eum reprehenderit tempora, adipisci, optio eveniet qui dolores enim perferendis voluptates doloremque eius! Labore tempore sit quae mollitia.{% endthis %}{% this icon:"icon-business-intelligence" reserve:"1" title:"Information Security <em>Analyst</em>" url="#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil neque dolores molestias inventore dolor asperiores repudiandae sunt unde id voluptatum? Eveniet architecto debitis, at eligendi doloremque, recusandae eaque. Magnam facere, accusantium soluta, libero ipsam ipsum tempora dolorem beatae! Porro ab hic expedita, numquam molestiae doloribus cupiditate ad voluptatum ipsa dolor labore, aut minima dolores cumque quam rerum cum molestias repellat voluptatem odit modi iusto obcaecati sed. Doloribus voluptatem ullam rem vitae cupiditate totam, eveniet voluptatum minus a deserunt quam, quae quis cumque, fugit nobis mollitia odio placeat? Et animi ipsum nemo numquam rem nulla, inventore, porro illo deserunt quis, distinctio consectetur reiciendis aliquid architecto ea iusto sunt accusantium fugit, cumque odio minus. Illo fugit possimus inventore dolorum ea delectus officia ad aspernatur, neque obcaecati, quasi amet at excepturi cumque quibusdam. Doloribus inventore ea suscipit magni accusantium veritatis illum placeat hic laborum, veniam facere sint, repellendus nam labore qui. Alias, corrupti?{% endthis %}{% this icon:"icon-computer-systems" reserve:"1" title:"Computer Systems <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime provident, vero natus aspernatur blanditiis voluptate quos totam. Quaerat unde modi fugiat laborum architecto sapiente autem minus odio ea mollitia, maiores fuga suscipit eum reprehenderit tempora, adipisci, optio eveniet qui dolores enim perferendis voluptates doloremque eius! Labore tempore sit quae mollitia.{% endthis %}{% this icon:"icon-info-security" reserve:"1" title:"Budget <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime provident, vero natus aspernatur blanditiis voluptate quos totam. Quaerat unde modi fugiat laborum architecto sapiente autem minus odio ea mollitia, maiores fuga suscipit eum reprehenderit tempora, adipisci, optio eveniet qui dolores enim perferendis voluptates doloremque eius! Labore tempore sit quae mollitia.{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>icon <i>required.</i><li>url <i>required.</i></li><li>title</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and icon and url %}
+
+    <a class="icon-content-link" href="{{ url }}">
+
+        {% assign file = icon %}
+        {% icon file reserve %}
+        
+        {% if title %}
+            <h4 class="title">{{ title }}</h4>
+        {% endif %}
+
+        {{ content }}
+
+    </a>
+
+{% endif %}

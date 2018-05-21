@@ -1,0 +1,35 @@
+{% comment %}
+Title: Expandable
+Markup: {% this title:"" active:"" float:"" %}Content{% endthis %}
+Example: {% this title:"Lorem ipsum dolor sit amet, consectetur?" active:"true" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus maxime odit, culpa, assumenda obcaecati, laboriosam repudiandae consequuntur vero officiis nostrum velit ut, eaque porro veniam quo ipsa! Sed nobis voluptatem excepturi eaque, modi, distinctio, consequatur pariatur ex, ipsum voluptate nostrum fugiat voluptatum incidunt accusamus. Mollitia dicta libero, nostrum ipsam quas ab maxime. Ipsam, repudiandae sit minus veniam dolorum dolore aperiam autem, quisquam temporibus tempora illum officia molestiae, fugiat adipisci odio cum eos! Enim nobis, facilis distinctio placeat suscipit mollitia ipsam adipisci, ea, nostrum accusamus iusto corrupti odio quis tenetur officiis blanditiis. Adipisci voluptatem et illum veniam ex temporibus, totam. Totam.{% endthis %}
+Example_1: {% this title:"Lorem ipsum dolor sit amet, consectetur?" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus maxime odit, culpa, assumenda obcaecati, laboriosam repudiandae consequuntur vero officiis nostrum velit ut, eaque porro veniam quo ipsa! Sed nobis voluptatem excepturi eaque, modi, distinctio, consequatur pariatur ex, ipsum voluptate nostrum fugiat voluptatum incidunt accusamus. Mollitia dicta libero, nostrum ipsam quas ab maxime. Ipsam, repudiandae sit minus veniam dolorum dolore aperiam autem, quisquam temporibus tempora illum officia molestiae, fugiat adipisci odio cum eos! Enim nobis, facilis distinctio placeat suscipit mollitia ipsam adipisci, ea, nostrum accusamus iusto corrupti odio quis tenetur officiis blanditiis. Adipisci voluptatem et illum veniam ex temporibus, totam. Totam.{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>title <i>required.</i></li><li>active <i>true or exclude property</i></li><li>float <i>left, right or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and title %}
+
+    {% capture classes %}
+        {%- if active %} is-active{% endif -%}
+        {%- if float %} fl-{{ float }}{% endif -%}
+    {% endcapture %}
+
+    <div class="item expandable js-target{{ classes }}">  
+
+        <h4 class="title js-toggle">
+
+            {{ title }}
+
+            {% svg path:"/assets/img/icon-expand.svg" %}
+
+        </h4>
+
+        <div class="content">
+
+            {{ content }}
+            
+        </div>
+
+    </div>
+
+{% endif %}

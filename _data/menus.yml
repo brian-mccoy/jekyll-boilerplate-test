@@ -1,0 +1,15 @@
+---
+Footer:
+- url: "/"
+  weight: 1
+  title: Home
+Navigation:
+- identifier: 
+  url: "/"
+  weight: 1
+  title: Home
+  children: 
+    - identifier:
+      url: "/about"
+      weight: 2
+      title: About

@@ -1,0 +1,29 @@
+<nav class="nav-breadcrumbs" role="navigation">
+
+    <div class="wrapper" id="breadcrumbs">
+
+        <span xmlns:v="http://rdf.data-vocabulary.org/#">
+
+            <span typeof="v:Breadcrumb">
+
+                <a href="{{ site.baseurl }}/" rel="v:url" property="v:title">Home</a> >
+
+                {% if page.collection != "pages" %}
+
+                    {% if page.collection == "careers" %}
+                        <a href="{{ site.baseurl }}/{{ page.collection }}/" rel="v:url" property="v:title">Business Analytics Careers</a> >
+                    {% else %}
+                        <span property="v:title">{{ page.collection | replace: "-", " " | capitalizewords }}</span> >
+                    {% endif %}
+
+                {% endif %}
+
+                <span class="breadcrumb_last" property="v:title">{{ page.title | remove: " | BusinessAnalytics.com" }}</span>
+
+            </span>
+
+        </span>
+
+    </div>
+
+</nav>

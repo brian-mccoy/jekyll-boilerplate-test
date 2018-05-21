@@ -1,0 +1,40 @@
+{% comment %}
+Title: Collapsible List
+Markup: {% this type:"" %}{% collapsible title:"" %}Content{% endcollapsible %}{% endthis %}
+Example: <h4>Collapsible - Tabs Horizontal</h4>{% this type:"tabs-horizontal" %}{% collapsible title:"Temporibus eveniet" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam eligendi voluptates consectetur laboriosam et eveniet cum suscipit fugit sint repellendus impedit distinctio reiciendis dolorum quos exercitationem earum illum cupiditate totam laborum, dicta molestiae adipisci accusantium eos deleniti. Laborum harum eum deserunt optio sint eius molestias, repudiandae est impedit saepe minus nihil. Iusto repudiandae omnis rem cumque nam cupiditate esse alias reiciendis doloremque sit, similique placeat harum modi in iste ea vel fugiat molestiae praesentium tempore eaque iure sapiente ipsam? Veritatis incidunt sunt quisquam corrupti, ad officiis nesciunt qui doloribus aperiam eveniet perspiciatis quasi dolor in fugiat rerum voluptates, corporis mollitia ipsum totam, modi eligendi vitae esse distinctio! Quas in repudiandae tempore atque dolor quaerat, beatae fuga voluptate! Aspernatur blanditiis impedit dicta quod totam rerum beatae in explicabo. Temporibus, eveniet. Et nesciunt adipisci consequuntur consectetur sunt sapiente magni cupiditate sint. Error numquam inventore minus incidunt esse vel nisi deserunt similique placeat assumenda veritatis cupiditate labore aspernatur ratione in sed cumque autem corporis enim libero, fugit laboriosam est nobis, minima, fugiat. Minima in perspiciatis atque quod voluptatibus ea autem hic earum, veniam ullam illum est eum sapiente eligendi nostrum nobis, incidunt error quidem sint fuga placeat vero. Rem similique libero debitis, suscipit odio praesentium! Harum mollitia, labore porro distinctio autem nihil earum itaque eum necessitatibus accusamus, libero quas commodi veritatis, magni rerum consequuntur ipsam repellat sed optio consequatur quasi, quam sint perferendis.{% endcollapsible %}{% collapsible active:"true" title:"List Item 2" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste illo, dolorem nostrum facere facilis saepe itaque corporis, quam harum, autem at dicta eaque laborum mollitia porro odio animi! Itaque dolorum necessitatibus dicta, aliquam, neque consequatur quo enim error ullam dolores, accusantium facere iusto ipsam omnis illum corrupti labore cupiditate eius veniam reiciendis quos aperiam, temporibus voluptate iure. Ipsa quo sapiente error ullam, obcaecati cupiditate quas reiciendis quasi dolor consequuntur, veniam id sit, animi, modi aspernatur. Soluta voluptatum dolores nam iste dolor totam dolorum commodi, obcaecati debitis quibusdam, eveniet, repellat voluptas rerum aut asperiores dignissimos, officia architecto provident tenetur amet. Eius.{% endcollapsible %}{% collapsible title:"List Item 3" icon:"icon-award" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ullam deserunt soluta natus! Suscipit eos mollitia consequatur nihil laboriosam, harum rem in quidem repudiandae, voluptate quasi quibusdam sunt voluptates quas odit sapiente voluptatibus minima esse aliquid quam! Quo deserunt sit, facere enim reprehenderit recusandae nesciunt minima consequuntur, aspernatur possimus libero fugiat optio, doloribus obcaecati, eaque magnam. Laboriosam doloremque quae alias est necessitatibus sint ipsam, sequi asperiores magni at odio quisquam dolore distinctio blanditiis quibusdam sapiente voluptate magnam labore nulla inventore aliquid eos quam neque iure possimus. Doloribus inventore dolore libero porro deserunt sapiente dolor et dolorem, officia delectus laudantium pariatur neque labore. Voluptatem dolorum enim minima deleniti at corrupti dolore eveniet id ex placeat modi delectus soluta, commodi pariatur mollitia non aliquid dolores vel adipisci consectetur aperiam ab expedita nam. Ipsum magnam modi, fuga neque harum ipsam iste error adipisci!{% endcollapsible %}{% endthis %}
+Example_1: <h4>Collapsible - Tabs Vertical</h4>{% this type:"tabs-vertical" %}{% collapsible title:"List Item 1" icon:"icon-star-solid" %}Aperiam ullam deserunt soluta natus! Suscipit eos mollitia consequatur nihil laboriosam, harum rem in quidem repudiandae, voluptate quasi quibusdam sunt voluptates aliquid quam!{% endcollapsible %}{% collapsible title:"Temporibus eveniet" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste illo, dolorem nostrum facere facilis saepe itaque corporis, quam harum, autem at dicta eaque laborum mollitia porro odio animi! Itaque dolorum necessitatibus dicta, aliquam, neque consequatur quo enim error ullam dolores, accusantium facere iusto ipsam omnis illum corrupti labore cupiditate eius veniam reiciendis quos aperiam, temporibus voluptate iure. Ipsa quo sapiente error ullam, obcaecati cupiditate quas reiciendis quasi dolor consequuntur, veniam id sit, animi, modi aspernatur. Soluta voluptatum dolores nam iste dolor totam dolorum commodi, obcaecati debitis quibusdam, eveniet, repellat voluptas rerum aut asperiores dignissimos, officia architecto provident tenetur amet. Eius.{% endcollapsible %}{% collapsible active:"true" title:"List Item 3" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ullam deserunt soluta natus! Suscipit eos mollitia consequatur nihil laboriosam, harum rem in quidem repudiandae, voluptate quasi quibusdam sunt voluptates aliquid quam! Quo deserunt sit, facere enim reprehenderit recusandae nesciunt minima consequuntur, aspernatur possimus libero fugiat optio, doloribus obcaecati, eaque magnam. Laboriosam doloremque quae alias est necessitatibus sint ipsam, sequi asperiores magni at odio quisquam dolore distinctio blanditiis quibusdam sapiente voluptate magnam labore nulla inventore aliquid eos quam neque iure possimus. Doloribus inventore dolore libero porro deserunt sapiente dolor et dolorem, officia delectus laudantium pariatur neque labore. Voluptatem dolorum enim minima deleniti at corrupti dolore eveniet id ex placeat modi delectus soluta, commodi pariatur mollitia non aliquid dolores vel adipisci consectetur aperiam ab expedita nam. Ipsum magnam modi, fuga neque harum ipsam iste error adipisci!{% endcollapsible %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>type <i>tabs-horizontal, tabs-vertical or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+Description: Vertical Tabs max 10, Horizontal Tabs max 5, converts to Accordion beyond these max numbers.
+{% endcomment %}
+
+
+{% if content %}
+
+    {% assign count = content | find:"collapsible-title" %}
+    {% assign active = content | find:"collapsible-title is-active" %}
+    {% assign class = ' type-tabs-vertical' %}
+
+    {% if type == 'tabs-horizontal' %}
+        {% assign class = ' type-tabs-horizontal' %}
+    {% endif %}
+
+    {% if type == 'tabs-horizontal' and count > 5 %}
+        {% assign class = ' type-tabs-accordion' %}
+    {% endif %}
+
+    {% if type == 'tabs-vertical' and count > 10 %}
+        {% assign class = ' type-tabs-accordion' %}
+    {% endif %}
+    
+    {% if active > 1 %}
+        {% assign content = content | replace: 'collapsible-title is-active', 'collapsible-title' %}
+        {% assign content = content | replace_first: 'collapsible-title', 'collapsible-title is-active' %}
+    {% endif %}
+
+    <dl class="collapsible{{ class }}" data-count="{{ count }}">
+
+        {{ content }}
+
+    </dl>
+
+{% endif %}

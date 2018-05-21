@@ -1,0 +1,75 @@
+# Settings
+title:               WebsiteTitle.com
+description:         Website description goes here
+url:                 https://www.websitetitle.com
+baseurl:             ''
+email:               contact+websitetitlecom@highereducation.com
+markdown:            kramdown
+layouts_dir:         _html/layouts
+includes_dir:        _html/includes
+collections_dir:     _collections
+image_base:          _assets/media/
+permalink:           :path/
+publisher:           WebsiteTitle.com
+
+
+# Collections
+collections:
+  pages:
+    permalink:        :path/
+    output:           true
+
+
+# Defaults
+defaults:
+  - scope:
+      path:          ""
+    values:
+      layout:        "default"
+  - scope:
+      path:          "admin/**"
+    values:
+      sitemap:        false
+
+
+# Widget
+#widget:
+  #ssr:               https://platform.highereducation.com/widgets.html?widget=ssr-qdf&backgroundColor=%233C74B9&ctaColor=%231D1D5C&&height=325&title=Quick%20Degree%20Finder
+
+
+# Web Statistics/Analytics
+#gtm: "GTM-XXXXXXX"
+# google_analytics: "" # This may not be needed if we deploy GA through GTM
+
+
+# SEO
+seo:
+  locale:              en_US
+  image:
+  author:              Staff Writers
+
+webmaster_verifications:
+  #google: XXXXXX
+
+
+# Cloudinary
+#cloudinary:
+  #cloud_name:        highereducation
+  #markup:            default
+  #breakpoints:       768|1024|1400
+  #quality:           auto:good
+  #format:            auto
+  #flag:              lossy
+  #crop:              fill
+
+
+# Output Directory ~ Excludes, Includes, and Keep on Jekyll builds.
+exclude:             [_assets, pull_request_template.md, README.md, Gemfile, Gemfile.lock, package.json, node_modules, gulpfile.js, yarn.lock, .jshintrc, package-lock.json, netlify.toml]
+include:             [_redirects, _headers]
+keep_files:          [assets]
+
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-menus

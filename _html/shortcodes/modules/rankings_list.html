@@ -1,0 +1,230 @@
+{% comment %}
+Title: Rankings
+Markup: {% this id:"" expand_all:"" preview_top:"" %}
+Example: {% this id:142 %}
+Properties: <ul><li>id <i>required.</i></li><li>expand_all <i>true or exclude property</i></li><li>preview_top <i>number or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if id %}
+
+    <table class="rankings js-children-toggle{{ expand_all | if: ' is-expanded-all' }}">
+
+        {% if ranking.title %}
+            <caption class="header">
+                {{ ranking.title }}
+                <div class="btn-controls">
+                    <button type="button" class="js-collapse-all">Collapse All</button>
+                    <button type="button" class="js-expand-all">Expand All</button>
+                </div>
+            </caption>
+        {% endif %}
+
+        <thead class="hide">
+            <tr>
+                <th>Rank</th>
+                <th>School</th>
+                <th>Score</th>
+                <th>Toggle</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+
+        {% for r in ranking.results %}
+
+            {% if r.tuition or r.pct_receiving_loans or r.avg_net_price or r.per_credit_hour_parttime_graduate or r.lms or r.number_of_online_programs or r.number_of_campus_programs or r.online_enrollment or r.retention_rate or r.enrollment_rate or r.admissions_rate or r.student_faculty_ratio or r.graduation_rate %}
+
+                {% assign meta = ' has-meta' %}
+
+            {% endif %}
+
+            <tr class="js-target{{ expand_all | if: ' is-active' }}">
+
+                <td class="rank js-toggle">{{ r.rank }}</td>
+                <td class="title js-toggle{{ r.score | if: ' has-score' }}"><h4>{{ r.school }}</h4></td>
+
+                {% if r.score %}
+                <td class="score js-toggle">
+                    <span class="score-content">
+                        <span class="label">Score</span>
+                        <span class="number"><strong>{{ r.score }}</strong></span>
+                    </span>
+                </td>
+                {% endif %}
+
+                <td class="toggle js-toggle">{% svg path:"/assets/img/icon-expand.svg" %}</td>
+                <td class="content{{ meta }}">
+
+                    {% if forloop.first and r.image_url %}
+                        {% assign school_image = r.image_url | replace: 'http://res.cloudinary.com/', 'https://res.cloudinary.com/' %}
+                        <img class="image" src="{{ school_image | replace: 'https://res.cloudinary.com/highereducation/image/upload/', 'https://res.cloudinary.com/highereducation/image/upload/ar_3.92,c_fill,w_940,q_65/' }}" />
+                    {% endif %}
+
+                    {% if meta %}
+
+                        {% assign stats = 0 %}
+                        
+                        <div class="meta js-target">
+
+                            {% if r.tuition and r.tuition != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-tuition" %}
+                                    <span class="label">Average Tuition</span>
+                                    {{ r.tuition | dollar }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.pct_receiving_loans and r.pct_receiving_loans != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-coin-stack" %}
+                                    <span class="label">Students Receiving Financial Aid</span>
+                                    {{ r.pct_receiving_loans | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.avg_net_price and r.avg_net_price != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-calculator" %}
+                                    <span class="label">Net Price</span>
+                                    {{ r.avg_net_price | dollar }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.graduation_rate and r.graduation_rate != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-cap" %}
+                                    <span class="label">Graduation Rate</span>
+                                    {{ r.graduation_rate | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.student_faculty_ratio and r.student_faculty_ratio != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-pie-graph" %}
+                                    <span class="label">Student to Faculty Ratio</span>
+                                    {{ r.student_faculty_ratio }}:1
+                                </div>
+                            {% endif %}
+
+                            {% if r.admissions_rate and r.admissions_rate != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-star-solid" %}
+                                    <span class="label">Admissions Rate</span>
+                                    {{ r.admissions_rate | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.enrollment_rate and r.enrollment_rate != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-door" %}
+                                    <span class="label">Enrollment Rate</span>
+                                    {{ r.enrollment_rate | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.retention_rate and r.retention_rate != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-trophy-solid" %}
+                                    <span class="label">Retention Rate</span>
+                                    {{ r.retention_rate | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.online_enrollment and r.online_enrollment != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-pulse" %}
+                                    <span class="label">Percentage of Students in Online Programs</span>
+                                    {{ r.online_enrollment | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.online_enrollment and r.online_enrollment != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-pulse" %}
+                                    <span class="label">Percentage of Students in Online Programs</span>
+                                    {{ r.online_enrollment | percent }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.number_of_campus_programs and r.number_of_campus_programs != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-stack" %}
+                                    <span class="label">Number of Campus Programs</span>
+                                    {{ r.number_of_campus_programs }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.number_of_online_programs and r.number_of_online_programs != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-stack" %}
+                                    <span class="label">Number of Online Programs</span>
+                                    {{ r.number_of_online_programs }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.lms and r.lms != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-clipboard" %}
+                                    <span class="label">LMS</span>
+                                    {{ r.lms }}
+                                </div>
+                            {% endif %}
+
+                            {% if r.per_credit_hour_parttime_graduate and r.per_credit_hour_parttime_graduate != "" %}
+                                {% assign stats = stats | plus: 1 %}
+                                <div class="stat">
+                                    {% icon file:"icon-parttime-cost" %}
+                                    <span class="label">Part-time cost per credit hour</span>
+                                    {{ r.per_credit_hour_parttime_graduate | dollar }}
+                                </div>
+                            {% endif %}
+                            
+                            {% if stats > 4 %}
+                                <a class="btn-link js-toggle"></a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    <div class="description">
+
+                        {% if forloop.index > 1 and r.image_url != "" %}
+                            {% assign school_image = r.image_url | replace: 'http://res.cloudinary.com/', 'https://res.cloudinary.com/' %}
+                            <img class="image" src="{{ school_image | replace: 'https://res.cloudinary.com/highereducation/image/upload/', 'https://res.cloudinary.com/highereducation/image/upload/ar_3.92,c_fill,w_940,q_65/' }}" />
+                        {% endif %}
+
+                        {{ r.copy }}
+                        
+                        {% if r.program_url or r.domain %}
+                            {% assign url = r.program_url | ternary: r.domain %}
+                            {% assign http = url | find: "http" %}
+                            <a class="btn-tertiary" href="{{ url | else: 'http://' }}{{ url }}" target="_blank" rel="nofollow">Visit School Website</a>
+                        {% endif %}
+
+                    </div>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% if preview_top %}
+        <p class="rankings-preview">
+            <a class="btn btn-critical" href="{{ ranking.ranking_cpt_slug }}">View Complete Ranking</a>
+        </p>
+    {% endif %}
+
+{% endif %}

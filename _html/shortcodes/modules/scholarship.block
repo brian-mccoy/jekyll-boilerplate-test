@@ -1,0 +1,44 @@
+{% comment %}
+Title: Scholarship
+Markup: {% this title:"" active:"" amount:"" url:"" float:"" %}Content{% endthis %}
+Example: {% this active:"true" title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus voluptatem possimus, voluptate corrupti!" amount:"$6,000" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur reiciendis, ut cum dolores voluptate mollitia aliquam, commodi vel amet quo aliquid assumenda odio animi, quis omnis voluptas quod repellendus ipsa, non id recusandae laudantium deleniti. Voluptatibus odit perferendis debitis eos labore, alias dicta rerum repudiandae soluta deleniti magni doloremque illum. Enim qui perferendis earum autem nostrum repellendus inventore delectus similique!{% endthis %}
+Example_1: {% this title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed explicabo debitis aliquam minus." %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur reiciendis, ut cum dolores voluptate mollitia aliquam, commodi vel amet quo aliquid assumenda odio animi, quis omnis voluptas quod repellendus ipsa, non id recusandae laudantium deleniti. Voluptatibus odit perferendis debitis eos labore, alias dicta rerum repudiandae soluta deleniti magni doloremque illum. Enim qui perferendis earum autem nostrum repellendus inventore delectus similique!{% endthis %}
+Example_2: {% this title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis tempora, et sequi delectus." amount:"$1,000 - $10,000" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur reiciendis, ut cum dolores voluptate mollitia aliquam, commodi vel amet quo aliquid assumenda odio animi, quis omnis voluptas quod repellendus ipsa, non id recusandae laudantium deleniti. Voluptatibus odit perferendis debitis eos labore, alias dicta rerum repudiandae soluta deleniti magni doloremque illum. Enim qui perferendis earum autem nostrum repellendus inventore delectus similique!{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>title <i>required.</i></li><li>active <i>true or exclude property</i></li><li>amount</li><li>url</li><li>float <i>left, right or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and title %}
+
+    {% capture classes %}
+        {%- if active %} is-active{% endif -%}
+        {%- if float %} fl-{{ float }}{% endif -%}
+    {% endcapture %}
+
+    <div class="item scholarship js-target{{ classes }}">
+
+        <h4 class="title js-toggle{{ amount | if: ' has-amount' }}">
+
+            {{ title }}
+
+            {% if amount %}
+                <span class="amount">{{ amount }}</span>
+            {% endif %}
+
+            {% svg path:"/assets/img/icon-expand.svg" %}
+
+        </h4>
+
+        <div class="content">
+
+            {{ content }}
+
+            {% if url %}
+                <a class="btn-tertiary" href="{{ url }}">View Scholarship</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endif %}

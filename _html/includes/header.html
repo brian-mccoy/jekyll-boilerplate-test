@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% include gtm_head.html %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="Accept-CH" content="DPR, Width">
+    {% include seo.html %}
+    
+    <link href="{{ site.url }}/assets/css/styles.css" rel="stylesheet" />
+    {% if page.head_css %}{% assign src = page.head_css %}{% embed_css src %}{% endif %}
+    {% if page.page_background %}<style>body { background-image: url('{{ page.page_background }}'); }</style>{% endif %}
+
+</head>
+
+<body {% body_class %}>
+
+    {% include gtm_body.html %}
+
+    <header class="site-header wrapper" role="banner">
+
+        <a href="{{ site.url }}/" class="header-logo">{% svg path:/assets/img/logo.svg %}</a>
+
+        <nav class="nav-primary" role="navigation">
+
+            {% include navigation-primary.html %}
+
+            <button class="btn-bars js-toggle" data-bodyclass="is-active-mobile">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+        </nav>
+
+    </header>

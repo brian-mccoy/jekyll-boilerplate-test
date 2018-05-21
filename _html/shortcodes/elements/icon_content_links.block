@@ -1,0 +1,17 @@
+{% comment %}
+Title: Icon + Copy Links Grouping
+Markup: {% this %}{% icon_content_link icon:"" title:"" url:"" %}Content{% endicon_content_link %}{% icon_content_link icon:"" title:"" url:"" %}Content{% endicon_content_link %}{% endthis %}
+Example: {% this %}{% icon_content_link icon:"icon-budget" reserve:"1" title:"Business Intelligence <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum ipsum dolor quia aliquid illum autem repudiandae error.{% endicon_content_link %}{% icon_content_link icon:"icon-business-intelligence" reserve:"1" title:"Information Security <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quia aliquid illum autem repudiandae error.{% endicon_content_link %}{% icon_content_link icon:"icon-computer-systems" reserve:"1" title:"Computer Systems <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quia repudiandae error.{% endicon_content_link %}{% icon_content_link icon:"icon-info-security" reserve:"1" title:"Budget <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum ipsum dolor quia aliquid illum autem repudiandae error error.{% endicon_content_link %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    <div class="icon-content-links">
+      
+        {{ content }}
+
+    </div>
+
+{% endif %}

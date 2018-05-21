@@ -1,0 +1,17 @@
+{% comment %}
+Title: Links
+Markup: {% this %}{% link title:"" image:"" url:"" %}{% link title:"" image:"" url:"" %}{% endthis %}
+Example: {% this %}{% link title:"Lorem ipsum dolor sit amet, consectetur adipisicing." image:"https://via.placeholder.com/100x100" url:"#" %}{% link title:"Lorem ipsum dolor sit amet." url:"#" %}{% link title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum!" image:"https://via.placeholder.com/100x100" url:"#" %}{% link title:"Lorem ipsum dolor sit amet." image:"https://via.placeholder.com/100x100" url:"#" %}{% link title:"Lorem ipsum dolor." image:"https://via.placeholder.com/100x100" subtitle:"Scholarships" url:"#" %}{% link subtitle:"Scholarships" title:"Lorem ipsum dolor sit amet." image:"https://via.placeholder.com/100x100" url:"#" %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    <div class="links">
+
+        {{ content }}
+
+    </div>
+
+{% endif %}

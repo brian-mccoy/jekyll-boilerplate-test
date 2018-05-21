@@ -1,0 +1,12 @@
+Link: <https://res.cloudinary.com>; rel=preconnect;
+Link: <https://platform.highereducation.com>; rel=preconnect;
+Link: <https://fonts.gstatic.com>; rel=preconnect;
+
+/assets/*
+   Cache-Control: public, max-age=31536000
+
+/favicon.ico
+   Cache-Control: public, max-age=31536000
+
+/styleguide*
+    Basic-Auth: he:he

@@ -1,0 +1,39 @@
+{% comment %}
+Title: Certification
+Markup: {% this title:"" icon:"" float:"" %}Content{% endthis %}
+Example: {% this title:"Cop" icon:"icon-cap" %}<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo neque magnam itaque expedita modi quisquam qui. At distinctio, provident corporis repellendus illum. Eaque accusantium ipsum odio sapiente repellat magnam iure, laboriosam ex pariatur dolores quos nostrum possimus aut dolorum nulla tenetur quod explicabo veritatis vero. Deleniti nisi atque debitis! Officia harum iusto dignissimos nihil vitae illo, corporis reiciendis repellendus nam?</p>{% endthis %}
+Instructions: Career Item.
+Properties: <ul><li>content <i>required.</i></li><li>title <i>required.</i></li><li>icon</li><li>float <i>left, right or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and title %}
+
+    {% if float %}
+        {% capture class %} fl-{{ float }}{% endcapture %}
+    {% endif %}
+
+    <div class="certification{{ class }}">
+      
+        {% if icon %}
+
+            {% assign file = icon %}
+            {% icon file reserve %}
+
+        {% endif %}
+
+        <h4 class="title">
+
+            {{ title }}
+
+        </h4>
+
+        <div class="content">
+
+            {{ content }}
+
+        </div>
+      
+    </div>
+
+{% endif %}

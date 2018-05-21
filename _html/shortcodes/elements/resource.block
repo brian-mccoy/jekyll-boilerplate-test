@@ -1,0 +1,53 @@
+{% comment %}
+Title: Resource
+Markup: {% this title:"" excerpt:"" url:"" background:"" icon:"" %}<table class="resource-table"><thead><tr><th>Column Title</th><th>Column Title</th><th>Column Title</th></tr></thead><tbody><tr><td>Row Content</td><td>Row Content</td><td>Row Content</td></tr></tbody></table>{% endthis %}
+Example: {% this title:"Resource" excerpt:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta id eum dolorem magni blanditiis quibusdam amet, iure, aperiam rem ad." url:"#" background:"https://via.placeholder.com/1100x200/111111/333333" icon:"icon-paper" %}<table class="resource-table"><thead><tr><th>Column Title</th><th>Column Title</th><th>Column Title</th></tr></thead><tbody><tr><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dicta laboriosam, ullam ipsa magni voluptatem inventore maxime nisi modi consequuntur pariatur fugiat iure vel, nemo laudantium sed vero, exercitationem quaerat, quo a sit sequi. Reiciendis.</td><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate similique rem distinctio fugit ipsa dolorem veritatis assumenda nostrum atque et alias velit suscipit, iure totam odit, culpa, cumque voluptatum. Assumenda.</td><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero est possimus, illo. Explicabo, quia. Laudantium laborum eaque accusantium sapiente rem rerum ea, veritatis, dolorem quae. Nostrum magnam cum velit rerum quas dolore eos fugit, voluptatibus ipsum saepe porro, eius consequuntur ea aut ad minima. Excepturi?</td></tr></tbody></table>{% endthis %}
+Example_1: {% this title:"Resource" excerpt:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat totam quibusdam enim ratione fuga perferendis dolore blanditiis sit, minima, optio." url:"#" background:"https://via.placeholder.com/1100x200/111111/333333" %}<table class="resource-table"><thead><tr><th>Column Title</th><th>Column Title</th><th>Column Title</th></tr></thead><tbody><tr><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At esse, error quaerat voluptatum. Accusamus quo distinctio ipsam fugit quaerat commodi temporibus fuga aut necessitatibus aliquid, omnis, cum cumque magni minima. Dolorum, laudantium! Sed quaerat, maxime!</td><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur odit deserunt id atque quidem asperiores. Enim unde minus cum vitae fugiat culpa, quam totam eveniet ducimus accusamus. Soluta, quam, consectetur.</td><td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae est voluptatem velit doloremque, dolorem libero praesentium porro alias cumque, quod numquam, voluptate eveniet neque eum. Voluptatum perspiciatis voluptatibus, veniam esse quisquam facere excepturi totam, dicta numquam! Molestiae porro iusto quaerat repellendus omnis repellat asperiores voluptatum.</td></tr></tbody></table>{% endthis %}
+Properties: <ul><li>content </li><li>title</li><li>excerpt</li><li>url</li><li>background</li><li>icon</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if background or content %}
+
+    <div class="resource">
+        
+        {% if background %}
+
+            {% if title or excerpt %}
+
+                {% capture background %} style="background-image: url('{{ background }}');"{% endcapture %}
+
+                <div class="header{{ icon | if: ' has-icon' }}" {{ background }}>
+
+                    {% if icon %}
+                    
+                        {% assign file = icon %}
+                        {% icon file reserve %}
+
+                    {% endif %}
+
+                    {% if title %}
+                        <h3 class="title">{{ title }}</h3>
+                    {% endif %}
+
+                    {% if excerpt %}
+                        <div class="copy">{{ excerpt }}</div>
+                    {% endif %}
+
+                    {% if url %}
+                        <a class="btn" href="{{ url }}">Learn More</a>
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+
+        {% if content %}
+            <div class="content">{{ content }}</div>
+        {% endif %}
+
+    </div>
+
+{% endif %}

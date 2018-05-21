@@ -1,0 +1,29 @@
+{% comment %}
+Title: Blockquote
+Markup: {% this source:"" url:"" %}Content{% endthis %}
+Example: {% this source:"Test" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente labore qui inventore, omnis assumenda asperiores iusto error, pariatur recusandae quibusdam sed magni sint corporis molestiae at autem quod numquam sit.{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>source</li><li>url</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+
+    <blockquote class="blockquote">
+
+        <p>
+            {{ content }}
+
+            {% if source %}
+                <cite>
+                    {% if url %}
+                        <a href="{{ url }}" target="_blank">{{ source }}</a>
+                    {% else %}
+                        {{ source }}
+                    {% endif %}
+                </cite>
+            {% endif %}
+        </p>
+
+    </blockquote>
+
+{% endif %}

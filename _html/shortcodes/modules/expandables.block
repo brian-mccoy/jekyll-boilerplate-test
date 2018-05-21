@@ -1,0 +1,21 @@
+{% comment %}
+Title: Expandables
+Markup: {% this expand_all:"" %}{% expandable title:"" active:"true|false" %}Content{% endexpandable %}{% expandable title:"" active:"true|false" %}Content{% endexpandable %}{% endthis %}
+Example: {% this %}{% expandable title:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ullam.?" active:"1" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga exercitationem est ut sint asperiores sapiente laudantium quae, aut aliquid neque rem a maiores accusamus aspernatur esse deserunt quo facilis. Repellendus aliquid cum tenetur sapiente tempore accusamus aliquam, quibusdam expedita error.{% endexpandable %}{% expandable title:"Lorem ipsum dolor sit amet.?" %}Lorem ipsum dolor sit amet, consectetur ipsum dolor sit adipisicing elit. Fuga exercitationem est ut sint asperiores sapiente laudantium quae, aut aliquid neque rem a maiores accusamus aspernatur esse deserunt quo facilis. Repellendus aliquid expedita error.{% endexpandable %}{% expandable title:"Fuga exercitationem est ut sint asperiores sapiente?" %}Lorem ipsum dolor sit amet, consectetur ipsum dolor sit adipisicing elit. Fuga exercitationem est ut sint asperiores sapiente laudantium quae, aut aliquid neque rem a maiores accusamus aspernatur esse deserunt quo facilis. Repellendus aliquid cum tenetur sapiente tempore accusamus aliquam, quibusdam expedita error.{% endexpandable %}{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>expand_all <i>true or exclude property</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content %}
+    
+    {% if expand_all %}
+        {% assign content = content | replace: 'class="item expandable js-target"', 'class="item expandable js-target is-active"' %}
+    {% endif %}
+
+    <div class="items expandables js-children-toggle{{ expand_all | if: ' is-expanded-all' }}">
+
+        {{ content }}
+        
+    </div>
+
+{% endif %}

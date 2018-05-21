@@ -1,0 +1,33 @@
+{% comment %}
+Title: Background
+Markup: {% this image:"" bgcolor:"" fontcolor:"" borderbottom:"" bordertop:"" margintop:"" marginbottom:"" %}Content{% endthis %}
+Example: {% this bgcolor:"#239de0" fontcolor:"#FFFFFF" image:"https://res.cloudinary.com/highereducation/image/upload/v1513289402/BusinessAnalytics.com/Homepage/img-careers-bg.png" marginbottom:0 %}<h2 class="text-center">Career Background</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, temporibus ipsam alias quisquam sunt dolorum expedita atque molestiae necessitatibus architecto quibusdam, minima neque, quis dolorem laudantium quasi natus harum nulla, exercitationem eius nemo consequatur vero! Repudiandae laboriosam optio velit officiis.</p>{% icon_content_links %}{% icon_content_link icon:"icon-budget" reserve:"1" title:"Business Intelligence <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quidem, sit voluptatem, numquam provident beatae? Dolorem, recusandae!{% endicon_content_link %}{% icon_content_link icon:"icon-business-intelligence" reserve:"1" title:"Information Security <em>Analyst</em>" url:"#" %}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quidem, sit voluptatem, numquam provident beatae? Dolorem, ipsum recusandae!{% endicon_content_link %}{% icon_content_link icon:"icon-computer-systems" reserve:"1" title:"Computer Systems <em>Analyst</em>" url:"#" %}Lorem ipsum amet, consectetur adipisicing elit. Sed quidem, sit voluptatem, numquam provident beatae? Dolorem, ipsum recusandae!{% endicon_content_link %}{% icon_content_link icon:"icon-info-security" reserve:"1" title:"Budget <em>Analyst</em>" url:"#" %}Lorem dolor sit amet, consectetur adipisicing elit. Sed quidem, sit voluptatem, numquam provident beatae? Dolorem, ipsum recusandae!{% endicon_content_link %}{% endicon_content_links %}{% endthis %}
+Example_1: {% this bgcolor:"#37375f" fontcolor:"white" margintop:0 %}<h2 class="text-center">Another Background</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel assumenda reiciendis velit nesciunt libero amet qui. Quibusdam laborum vero impedit saepe harum exercitationem repellendus maxime reprehenderit voluptates cumque dolorum doloribus sunt et quam corrupti, illum debitis aspernatur eius, nam, minima.</p>{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>image</li><li>bgcolor</li><li>fontcolor</li><li>borderbottom</li><li>bordertop</li><li>margintop</li><li>marginbottom</li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+Instructions: fontcolor & overlay property accepts hex or color attribute.
+{% endcomment %}
+
+
+{% if content %}
+
+    {% capture styles %}
+        {%- if fontcolor -%} color: {{ fontcolor }}; {%- endif -%}
+        {%- if bgcolor -%} background-color: {{ bgcolor }}; {%- endif -%}
+        {%- if image -%} background-image: url('{{ image }}'); {%- endif -%}
+        {%- if borderbottom -%} border-bottom: 1px solid {{ borderbottom }}; {%- endif -%}
+        {%- if bordertop -%} border-top: 1px solid {{ bordertop }}; {%- endif -%}
+        {%- if marginbottom -%} margin-bottom: {{ marginbottom }}; {%- endif -%}
+        {%- if margintop -%} margin-top: {{ margintop }}; {%- endif -%}
+    {% endcapture %}
+
+    <div class="background" style="{{ styles | strip_newlines }}">
+
+        <div class="wrapper">
+
+            {{ content }}
+
+        </div>
+
+    </div>
+
+{% endif %}

@@ -1,0 +1,19 @@
+{% comment %}
+Title: Image + Copy
+Markup: {% this image:"" %}Content{% endthis %}
+Example: {% this image:"https://via.placeholder.com/250x250/000/fff" %}<h4>Lorem ipsum dolor sit amet.</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quisquam laboriosam enim soluta atque, fugiat rem molestiae nam reiciendis ipsam, numquam, cumque nisi aperiam! Dignissimos vero quae ad itaque magni fuga veritatis atque neque! Eius ullam a et, velit iure ratione aut! Consequuntur, quos, distinctio. Amet sit, alias corrupti fuga.{% endthis %}{% this image:"https://via.placeholder.com/250x250/000/fff" %}<h4>Lorem ipsum dolor sit amet.</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quisquam laboriosam enim soluta atque, fugiat rem molestiae nam reiciendis ipsam, numquam, cumque nisi aperiam! Dignissimos vero quae ad itaque magni fuga veritatis atque neque! Eius ullam a et, velit iure ratione aut! Consequuntur, quos, distinctio. Amet sit, alias corrupti fuga.{% endthis %}{% this image:"https://via.placeholder.com/250x250/000/fff" %}<h4>Lorem ipsum dolor sit amet.</h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quisquam laboriosam enim soluta atque, fugiat rem molestiae nam reiciendis ipsam, numquam, cumque nisi aperiam! Dignissimos vero quae ad itaque magni fuga veritatis atque neque! Eius ullam a et, velit iure ratione aut! Consequuntur, quos, distinctio. Amet sit, alias corrupti fuga.{% endthis %}
+Properties: <ul><li>content <i>required.</i></li><li>image <i>required.</i></li><li><small><i>Exclude blank properties from Tag/Block</i></small></ul>
+{% endcomment %}
+
+
+{% if content and image %}
+
+    <div class="image-content">
+
+        <img class="image" src="{{ image }}" />
+
+        {{ content }}
+
+    </div>
+
+{% endif %}
