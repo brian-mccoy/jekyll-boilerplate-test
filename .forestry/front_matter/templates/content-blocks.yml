@@ -7,3 +7,5 @@ fields:
   name: content_blocks
   template_types:
   - content
+pages:
+- cbd-college.md
