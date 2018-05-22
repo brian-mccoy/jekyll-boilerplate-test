@@ -5,3 +5,5 @@ fields:
 - type: blocks
   label: Content Blocks
   name: content_blocks
+  template_types:
+  - content
